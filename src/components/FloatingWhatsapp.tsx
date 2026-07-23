@@ -6,9 +6,11 @@ import WhatsappIcon from "@/components/icons/WhatsappIcon";
 import { SITE_CONFIG } from "@/config/site";
 
 export default function FloatingWhatsapp() {
+  const [mounted, setMounted] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       // Hide while in Hero section (top 450px), show when scrolling down
       setIsVisible(window.scrollY > 450);
@@ -16,6 +18,8 @@ export default function FloatingWhatsapp() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  if (!mounted) return null;
 
   return (
     <AnimatePresence>
