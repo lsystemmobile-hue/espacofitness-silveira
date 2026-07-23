@@ -15,7 +15,7 @@ const differentials = [
 
 export default function AboutMethod() {
   return (
-    <section id="sobre" className="py-24 bg-[#090909] relative overflow-hidden">
+    <section id="sobre" className="scroll-mt-20 py-24 bg-[#090909] relative overflow-hidden">
       {/* Red ambient glow background */}
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#C81010]/10 rounded-full blur-[140px] pointer-events-none" />
 

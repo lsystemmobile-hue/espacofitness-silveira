@@ -42,7 +42,7 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="treinamentos" className="py-24 bg-[#F3F3F3] text-[#090909] relative overflow-hidden">
+    <section id="treinamentos" className="scroll-mt-20 py-24 bg-[#F3F3F3] text-[#090909] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center">

@@ -13,7 +13,7 @@ export default function LocationSection() {
   )}`;
 
   return (
-    <section id="localizacao" className="py-24 bg-[#090909] text-white relative overflow-hidden">
+    <section id="localizacao" className="scroll-mt-20 py-24 bg-[#090909] text-white relative overflow-hidden">
       {/* Background glowing element */}
       <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#C81010]/10 rounded-full blur-[140px] pointer-events-none -translate-y-1/2" />
 

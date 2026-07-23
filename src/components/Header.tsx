@@ -25,14 +25,28 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+  const handleDesktopNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setMobileMenuOpen(false);
     const targetId = href.replace("#", "");
     const element = document.getElementById(targetId);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
+  };
+
+  const handleMobileNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    setMobileMenuOpen(false);
+    const targetId = href.replace("#", "");
+    
+    // Slight delay so closing drawer does not interrupt touch scroll on mobile devices
+    setTimeout(() => {
+      const element = document.getElementById(targetId);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        window.location.hash = href;
+      }
+    }, 100);
   };
 
   return (
@@ -47,7 +61,7 @@ export default function Header() {
         {/* Logo */}
         <a
           href="#inicio"
-          onClick={(e) => handleNavClick(e, "#inicio")}
+          onClick={(e) => handleDesktopNavClick(e, "#inicio")}
           className="flex items-center gap-3 group"
         >
           <div className="relative w-44 h-11 sm:w-52 sm:h-12 transition-transform duration-200 group-hover:scale-[1.02]">
@@ -67,7 +81,7 @@ export default function Header() {
             <a
               key={link.name}
               href={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
+              onClick={(e) => handleDesktopNavClick(e, link.href)}
               className="text-sm font-bold text-[#090909] hover:text-[#C81010] transition-colors duration-150 relative group py-1"
             >
               {link.name}
@@ -101,8 +115,8 @@ export default function Header() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.href)}
-                  className="text-base font-bold text-[#090909] hover:text-[#C81010] py-2.5 px-3 rounded-lg hover:bg-gray-100 transition-colors"
+                  onClick={(e) => handleMobileNavClick(e, link.href)}
+                  className="text-base font-bold text-[#090909] hover:text-[#C81010] py-2.5 px-3 rounded-lg hover:bg-gray-100 transition-colors active:bg-gray-200"
                 >
                   {link.name}
                 </a>

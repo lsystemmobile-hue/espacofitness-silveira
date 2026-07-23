@@ -29,7 +29,7 @@ const reviews = [
 
 export default function Testimonials() {
   return (
-    <section id="avaliacoes" className="py-24 bg-[#F3F3F3] text-[#090909] relative overflow-hidden">
+    <section id="avaliacoes" className="scroll-mt-20 py-24 bg-[#F3F3F3] text-[#090909] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Title */}
         <div className="max-w-3xl mx-auto text-center">
